@@ -1,18 +1,18 @@
-
+from business import get_weather
 
 def main():
     choice = get_choice()
 
     if choice == "1":
-        print() # TODO: Get Toulouse weather forecast.
+        print(get_weather("Toulouse"))
         get_choice()
 
     elif choice == "2":
-        print() # TODO: Get Merignac weather forecast.
+        print(get_weather("Merignac"))
         get_choice()
 
     elif choice == "3":
-        print() # TODO: Get Saint-Geours weather forecast.
+        print(get_weather("Saint-Geours-De-Maremne"))
         get_choice()
 
     elif choice == "0":
