@@ -1,6 +1,7 @@
 import os
 import requests
 from dotenv import load_dotenv
+from datetime import datetime
 
 def call_api(call, path):
     try:
@@ -24,11 +25,15 @@ def get_weather(city):
 
     if data:
         for i, t in enumerate(weather):
-            temp.append(t["main"]["temp"])
-            formatted_data = {
+            temp.append({
                 "date": t["dt_txt"],
-                "temp": temp
-            }
+                "temp": t["main"]["temp"],
+                "temp_min": t["main"]["temp_min"],
+                "temp_max": t["main"]["temp_max"]
+            })
+        formatted_data = {
+            "weather": temp
+        }
     else:
         return "No data available"
     return formatted_data
